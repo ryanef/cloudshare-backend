@@ -9,7 +9,7 @@ type Query {
 
     getMyTimeline(limit: Int!, nextToken: String): TweetsPage! #limit is for how many to see
 
-    getProfile: MyProfile!
+    getMyProfile: MyProfile!
 
     getProfile(screenName: String!): OtherProfile!
 
@@ -114,7 +114,7 @@ interface ITweet {
 type Tweet implements ITweet {
     id: ID!
     profile: IProfile!
-    createdAt: AWSDate
+    createdAt: AWSDateTime!
     text: String!
     replies: Int!
     likes: Int!
@@ -151,6 +151,6 @@ type TweetsPage {
 }
 
 type ProfilesPage {
-    profile: [IProfile!]
+    profiles: [IProfile!]
     nextToken: String
 }
